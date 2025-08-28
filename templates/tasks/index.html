@@ -4,21 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de Tareas</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'tasks/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/tasks/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Gestor de Tareas</h1>
-        
-        <div class="add-task">
-            <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
-            <button id="addBtn">Añadir</button>
+        <header>
+            <h1><i class="fas fa-tasks"></i> Gestor de Tareas</h1>
+            <p>Organiza tus tareas de forma eficiente</p>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-number" id="totalTasks">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="completedTasks">0</span>
+                <span class="stat-label">Completadas</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="pendingTasks">0</span>
+                <span class="stat-label">Pendientes</span>
+            </div>
         </div>
-        
-        <ul id="taskList"></ul>
+
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Añadir nueva tarea...">
+            <button id="addBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> Añadir
+            </button>
+        </div>
+
+        <div id="statusMessage" class="status-message"></div>
+        <div id="loading" class="loading">Cargando...</div>
+
+        <ul id="taskList" class="task-list"></ul>
+
+        <div class="actions">
+            <button id="clearCompleted" class="btn-secondary">
+                <i class="fas fa-trash"></i> Limpiar completadas
+            </button>
+        </div>
     </div>
 
-    <script src="{% static 'tasks/js/script.js' %}"></script>
+    <script src="static/tasks/js/script.js"></script>
 </body>
 </html>
